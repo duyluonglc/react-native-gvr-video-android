@@ -15,7 +15,7 @@ class VideoView extends Component {
 }
 
 VideoView.propTypes = {
-  ...ViewPropTypes.propTypes,
+  ...ViewPropTypes,
   video: PropTypes.shape({
     uri: PropTypes.string,
     type: PropTypes.string
