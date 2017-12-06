@@ -24,15 +24,13 @@ public class VideoPackage implements ReactPackage {
         return Collections.emptyList();
     }
 
-    @Override
+    // Deprecated RN 0.47
     public List<Class<? extends JavaScriptModule>> createJSModules() {
         return Collections.emptyList();
     }
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return Arrays.<ViewManager>asList(
-                new VideoManager(reactContext)
-        );
+        return Arrays.<ViewManager>asList(new VideoManager(reactContext));
     }
 }
