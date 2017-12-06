@@ -46,6 +46,13 @@ public class VideoManager extends SimpleViewManager<VrVideoView> {
         return view;
     }
 
+    @Override
+    public void onDropViewInstance(VrVideoView view) {
+        super.onDropViewInstance(view);
+        view.pauseVideo();
+        view = null;
+    }
+
     @ReactProp(name = "displayMode")
     public void setDisplayMode(VrVideoView view, String mode) {
         switch(mode) {

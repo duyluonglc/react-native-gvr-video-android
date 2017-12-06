@@ -9,31 +9,42 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native'
 import VideoView from 'react-native-gvr-video-android'
 
 export default class App extends Component {
-  render () {
+  state = { show: true, paused: true }
+
+  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <VideoView
-          video={{
-            uri: 'https://yanwsh.github.io/videojs-panorama/assets/shark.mp4',
-            type: 'mono'
-          }}
-          volume={1}
-          style={{ width: 300, height: 200 }}
-          enableInfoButton={false}
-          enableFullscreenButton
-          enableCardboardButton
-          enableTouchTracking
-          hidesTransitionView
-          paused={false}
-        />
+        {this.state.show && (
+          <VideoView
+            video={{
+              uri: 'https://yanwsh.github.io/videojs-panorama/assets/shark.mp4',
+              type: 'mono'
+            }}
+            volume={1}
+            style={{ width: 300, height: 200 }}
+            enableInfoButton={false}
+            enableFullscreenButton
+            enableCardboardButton
+            enableTouchTracking
+            hidesTransitionView
+            paused={this.state.paused}
+          />
+        )}
+        <TouchableOpacity onPress={() => this.setState({ show: !this.state.show })}>
+          <Text>Show/Hide</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.setState({ paused: !this.state.paused })}>
+          <Text>Play/Pause</Text>
+        </TouchableOpacity>
       </View>
     )
   }
