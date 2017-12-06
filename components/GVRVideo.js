@@ -21,6 +21,7 @@ VideoView.propTypes = {
     type: PropTypes.string
   }).isRequired,
   volume: PropTypes.number,
+  paused: PropTypes.bool,
   displayMode: PropTypes.string,
   enableFullscreenButton: PropTypes.bool,
   enableCardboardButton: PropTypes.bool,
