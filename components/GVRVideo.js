@@ -1,21 +1,21 @@
 /*
- * @Author: altafan 
- * @Date: 2017-06-22 15:25:03 
+ * @Author: altafan
+ * @Date: 2017-06-22 15:25:03
  * @Last Modified by: altafan
  * @Last Modified time: 2017-06-23 16:36:11
  */
-import React, { Component, PropTypes } from 'react'
-import { requireNativeComponent, View } from 'react-native'
-
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { requireNativeComponent, ViewPropTypes } from 'react-native'
 
 class VideoView extends Component {
-  render() {
+  render () {
     return <RCTVideoView {...this.props} />
   }
 }
 
 VideoView.propTypes = {
-  ...View.propTypes,
+  ...ViewPropTypes.propTypes,
   video: PropTypes.shape({
     uri: PropTypes.string,
     type: PropTypes.string
@@ -26,9 +26,9 @@ VideoView.propTypes = {
   enableCardboardButton: PropTypes.bool,
   enableInfoButton: PropTypes.bool,
   enableTouchTracking: PropTypes.bool,
-  hidesTransitionView: PropTypes.bool,
+  hidesTransitionView: PropTypes.bool
 }
 
-const RCTVideoView = requireNativeComponent('Video', VideoView, { nativeOnly: {} });
+const RCTVideoView = requireNativeComponent('Video', VideoView, { nativeOnly: {} })
 
-export default VideoView;
+export default VideoView
